@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { Resend } from "Resend";
+import { Resend } from "resend";
 
 import WelcomeTemplate from "@/emails/WelcomeTemplate";
 import { ENV } from "@/env";
