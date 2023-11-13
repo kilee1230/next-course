@@ -7,6 +7,8 @@ import React from "react";
 const NavBar = () => {
   const { status, data: session } = useSession();
 
+  console.log({ status, session });
+
   return (
     <div className="flex bg-slate-200 p-3 space-x-3">
       <Link href="/" className="mr-5">
@@ -16,16 +18,20 @@ const NavBar = () => {
       {status === "loading" && (
         <span className="loading loading-spinner loading-lg"></span>
       )}
-      {status === "authenticated" && (
+      {status === "authenticated" ? (
         <div>
           {session.user!.name}{" "}
           <Link href="/api/auth/signout" className="ml-3">
             Sign Out
           </Link>
         </div>
+      ) : (
+        <></>
       )}
-      {status === "unauthenticated" && (
+      {status === "unauthenticated" ? (
         <Link href="/api/auth/signin">Login</Link>
+      ) : (
+        <></>
       )}
     </div>
   );
