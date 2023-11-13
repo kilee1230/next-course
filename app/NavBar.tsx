@@ -7,6 +7,8 @@ import React from "react";
 const NavBar = () => {
   const { status, data: session } = useSession();
 
+  console.log({ status, session });
+
   return (
     <div className="flex bg-slate-200 p-3 space-x-3">
       <Link href="/" className="mr-5">
